@@ -15,8 +15,15 @@
     @include media-query(1380px) {
       top: 50%;
     }
+    @include media-query(680px) {
+      width: 100%;
+      top: 70%;
+    }
   }
   &__img {
+    @include media-query(680px) {
+      order: 1;
+    }
     img {
       position: absolute;
       left: -5rem;
@@ -26,12 +33,22 @@
       @include media-query(1380px) {
         left: -15rem;
       }
+
+      @include media-query(680px) {
+        width: 100%;
+        height: unset;
+        left: 0rem;
+        bottom: -10rem;
+      }
     }
   }
   background-position: 50% 40rem;
   &__wrapper {
     grid-template-columns: 1fr 1fr;
-    height: 100vh;
+    min-height: 100vh;
+    @include media-query(680px) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__content {
@@ -43,6 +60,11 @@
     justify-content: flex-end;
     align-items: center;
     height: 100%;
+    @include media-query(680px) {
+      padding-top: 3rem;
+      align-items: flex-start;
+      text-align: center;
+    }
     h1 {
       font-size: clamp(3rem, 3vw, 6.5rem);
       text-transform: uppercase;
@@ -50,11 +72,13 @@
       line-height: 1.2;
       font-family: "din-bold", sans-serif;
       width: 100%;
-
       margin-bottom: 2rem;
       span {
         position: relative;
         z-index: 9999;
+        @include media-query(680px) {
+          display: block;
+        }
       }
       span::after {
         content: "";
@@ -65,6 +89,11 @@
         z-index: -1;
         background-color: #2b93d1;
         height: 60%;
+        @include media-query(680px) {
+          width: 50%;
+          left: 50%;
+          transform: translateX(-50%);
+        }
       }
     }
 
@@ -127,7 +156,9 @@
         @include media-query(1380px) {
           width: 100%;
         }
-
+        .tns-nav-active {
+          background-color: $primary !important;
+        }
         .tns-nav {
           position: absolute;
           bottom: 1rem;
@@ -138,7 +169,7 @@
             transform: translateX(50%);
           }
           button {
-            background-color: red;
+            background-color: gray;
             margin: 0 1rem;
             display: inline-block;
             width: 1rem;
