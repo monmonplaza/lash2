@@ -20,6 +20,9 @@
     background-color: $light;
     padding: 2rem;
     border: 1px solid #ebebeb;
+    @include media-query(900px) {
+      max-width: 32rem;
+    }
     img {
       margin: 1rem auto;
       display: block;
